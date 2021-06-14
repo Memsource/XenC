@@ -445,12 +445,12 @@ public:
     int getMaxEvalPC() const;
     
     /**
-     *  @fn void setSampleSize (int size)
+     *  @fn void setSampleSize (long long size)
      *  @brief Mutator to the out-of-domain sample size
      *
      *  @param size :   the out-of-domain sample size
      */
-    void setSampleSize(int size);
+    void setSampleSize(long long size);
     
     /**
      *  @fn void setStep (int step)

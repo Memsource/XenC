@@ -305,7 +305,7 @@ int XenOption::getMaxEvalPC() const {
     return opt->maxEvalPC;
 }
 
-void XenOption::setSampleSize(int size) {
+void XenOption::setSampleSize(long long size) {
     opt->sampleSize = size;
 }
 

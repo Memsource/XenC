@@ -60,17 +60,17 @@ public:
     
 protected:
     /**
-     *  @fn static void findSampleSize (boost::shared_ptr<Corpus> idCorp, boost::shared_ptr<Corpus> oodCorp)
+     *  @fn static long long findSampleSize (boost::shared_ptr<Corpus> idCorp, boost::shared_ptr<Corpus> oodCorp)
      *  @brief Finds the optimal sample size for the OOD Corpus 
      *
      *  @param idCorp :     in-domain Corpus
      *  @param oodCorp :    out-of-domain Corpus
      *  @return size of the required Corpus sample in percentage of the whole one
      */
-    static int findSampleSize(boost::shared_ptr<Corpus> idCorp, boost::shared_ptr<Corpus> oodCorp);
+    static long long findSampleSize(boost::shared_ptr<Corpus> idCorp, boost::shared_ptr<Corpus> oodCorp);
     
     /**
-     *  @fn static Corpus extractSample (boost::shared_ptr<Corpus> ptrCorp, int sSize, bool mean)
+     *  @fn static Corpus extractSample (boost::shared_ptr<Corpus> ptrCorp, long long sSize, bool mean)
      *  @brief Extracts a random sample from a give Corpus
      *
      *  @param ptrCorp :    Corpus from which the sample should be extracted
@@ -78,7 +78,7 @@ protected:
      *  @param mean :       true if we are in "mean" mode (not the same Corpus filename)
      *  @return extracted Corpus sample
      */
-    static Corpus extractSample(boost::shared_ptr<Corpus> ptrCorp, int sSize, bool mean);
+    static Corpus extractSample(boost::shared_ptr<Corpus> ptrCorp, long long sSize, bool mean);
 };
 
 #endif

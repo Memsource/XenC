@@ -123,12 +123,12 @@ public:
     bool getPrint(int line);
     
     /**
-     *  @fn int getWC () const
+     *  @fn long long getWC () const
      *  @brief Accessor to the number of tokens of the Corpus
      *
      *  @return integer representing the token count
      */
-    int getWC() const;
+    long long getWC() const;
     
     /**
      *  @fn void removeLine (int line)
@@ -144,15 +144,15 @@ private:
     boost::shared_ptr<XenFile> ptrFile;     //!< Shared pointer on a XenFile wrapping the reference to the XenFile of the Corpus
     boost::shared_ptr<std::vector<std::string> > ptrText;     //!< Shared pointer on a vector of strings holding the Corpus text
     boost::shared_ptr<std::vector<int> > ptrPrint;      //!< Shared pointer on a vector of integers holding the printing status of the text
-    int wc;                 //!< Integer representing the tokens count
+    long long wc;                 //!< Integer representing the tokens count
     
     /**
-     *  @fn int wordCount ()
+     *  @fn long long wordCount ()
      *  @brief Counts the tokens in the Corpus text
      *
      *  @return integer representing the token count
      */
-    int wordCount();
+    long long wordCount();
     
     /**
      *  @fn void loadText ()
