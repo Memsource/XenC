@@ -104,7 +104,7 @@ bool Corpus::getPrint(int line) {
     return ptrPrint->operator[]((unsigned long) line) != 0;
 }
 
-int Corpus::getWC() const {
+long long Corpus::getWC() const {
 	return wc;
 }
 
@@ -117,8 +117,8 @@ void Corpus::loadText() {
     ptrPrint = boost::make_shared<std::vector<int> >(ptrText->size(), 1);
 }
 
-int Corpus::wordCount() {
-	int res = 0;
+long long Corpus::wordCount() {
+	long long res = 0;
     
 	for (unsigned int i = 0; i < ptrText->size(); i++) {
         res = res + XenCommon::wordCount(ptrText->operator[](i));

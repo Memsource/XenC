@@ -29,28 +29,20 @@
  */
 
 #include "../include/mode.h"
+#include <iostream>
 
 Mode::~Mode() {
     
 }
 
-int Mode::findSampleSize(boost::shared_ptr<Corpus> idCorp, boost::shared_ptr<Corpus> oodCorp) {
-    int iW = idCorp->getWC();
-	int oW = oodCorp->getWC();
+long long Mode::findSampleSize(boost::shared_ptr<Corpus> idCorp, boost::shared_ptr<Corpus> oodCorp) {
+  long long iW = idCorp->getWC();
+	long long oW = oodCorp->getWC();
     
-	double res = (double)iW / (double)oW * 100;
-	int i = (int)(res + 0.5f);
-    
-	if (i == 0) { i = 1; }
-	if (i > 100) { i = 100; }
-    
-	return i;
+	return std::min(iW, oW);
 }
 
-Corpus Mode::extractSample(boost::shared_ptr<Corpus> ptrCorp, int sSize, bool mean) {
-	double res = (double)ptrCorp->getWC() * ((double)sSize / 100);
-	int max = (int)(res + 0.5f);
-    
+Corpus Mode::extractSample(boost::shared_ptr<Corpus> ptrCorp, long long sSize, bool mean) {
     std::string rnd = "";
     
     if (mean) {
@@ -68,7 +60,7 @@ Corpus Mode::extractSample(boost::shared_ptr<Corpus> ptrCorp, int sSize, bool me
         
         int count = 0;
         
-        while (count < max) {
+        while (count < sSize) {
             std::string line = ptrCorp->getLine(std::rand() % ptrCorp->getSize());
             out << line << std::endl;
             int n = XenCommon::wordCount(line);
